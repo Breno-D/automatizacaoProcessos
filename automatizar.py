@@ -20,7 +20,9 @@ def downloadData():
     )
     pyautogui.hotkey("ctrl", "v")
     pyautogui.press("enter")
-    time.sleep(2)
+    while not pyautogui.locateOnScreen("drivecarregado.PNG", confidence=0.9):
+        time.sleep(1)
+    time.sleep(1)
     pyautogui.click(x=406, y=305, clicks=2)
     time.sleep(1)
     pyautogui.click(x=398, y=390)
@@ -42,8 +44,11 @@ def enviarEmail(quantidadeVendidas, valorTotal):
     pyperclip.copy("https://mail.google.com/mail/u/1/#inbox")
     pyautogui.hotkey("ctrl", "v")
     pyautogui.press("enter")
-    time.sleep(3)
+    while not pyautogui.locateOnScreen("gmailcarregado.PNG", confidence=0.9):
+        time.sleep(1)
+    time.sleep(1)
     pyautogui.click(x=125, y=201)
+    time.sleep(1)
     pyautogui.write("brenord@hotmail.com.br")
     pyautogui.press("tab")
     pyautogui.press("tab")
@@ -54,12 +59,25 @@ def enviarEmail(quantidadeVendidas, valorTotal):
     corpoDoEmail = f"""
     Boa noite,
         Durante o mês de dezembro nós vendemos {quantidadeVendidas:,} produtos e obtivemos um faturamento de R${valorTotal:,.2f}
+        Segue em anexo a planilha de dados
         
         Att
             Breno R. Dória"""
     pyperclip.copy(corpoDoEmail)
     pyautogui.hotkey("ctrl", "v")
+    pyautogui.click(x=1426, y=1006)
+    pyautogui.click(x=1624, y=948)
+    time.sleep(2)
+    arquivo = r"C:\Users\breno\Downloads\Vendas - Dez.xlsx"
+    pyperclip.copy(arquivo)
+    pyautogui.hotkey("ctrl", "v")
+    pyautogui.press("enter")
     pyautogui.click(x=1309, y=1005)
+
+
+def test():
+    time.sleep(5)
+    print(pyautogui.position())
 
 
 if __name__ == "__main__":
