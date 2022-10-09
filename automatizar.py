@@ -75,10 +75,5 @@ def enviarEmail(quantidadeVendidas, valorTotal):
     pyautogui.click(x=1309, y=1005)
 
 
-def test():
-    time.sleep(5)
-    print(pyautogui.position())
-
-
 if __name__ == "__main__":
     main()
