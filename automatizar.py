@@ -49,7 +49,7 @@ def enviarEmail(quantidadeVendidas, valorTotal):
     time.sleep(1)
     pyautogui.click(x=125, y=201)
     time.sleep(1)
-    pyautogui.write("brenord@hotmail.com.br")
+    pyautogui.write("dummyemail.gmail.com")
     pyautogui.press("tab")
     pyautogui.press("tab")
     assunto = "Relatório de Vendas do mês de dezembro"
